@@ -1,6 +1,4 @@
-# Gestion-de-pagos
- Calcula el pago a los clientes
- Manual de Uso - Asistente de Pagos v1.0beta
+Manual de Uso - Asistente de Pagos v1.0beta
 
 1. Introducción
 Este manual detalla el uso del Asistente de Pagos, una aplicación diseñada para gestionar el rendimiento de múltiples carteras de USDT.

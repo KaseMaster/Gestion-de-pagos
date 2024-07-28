@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" href="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" type="image/x-icon">
+    <script src="/static/js/script.js" defer></script>
+    <title>Asistente de pagos</title>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    {% include 'partials/_header.html' %}
+    <div class="dark-mode-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    <div class="container mx-auto px-4 mt-8 min-h-screen">
+      <div class="py-10">
+        <h1 class="text-3xl font-bold mb-6 text-center">Asistente de pagos v1.0beta</h1>
+        <div class="mb-6">
+          <input type="file" id="csvFile" accept=".csv" class="mb-2">
+          <button id="uploadBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Upload CSV
+          </button>
+        </div>
+        <div class="overflow-x-auto">
+          <table id="portfolioTable" class="min-w-full bg-white border border-gray-300">
+            <thead>
+              <tr>
+                <th class="py-2 px-4 border-b">Start Date</th>
+                <th class="py-2 px-4 border-b">End of Grace Period</th>
+                <th class="py-2 px-4 border-b">Name</th>
+                <th class="py-2 px-4 border-b">Portfolio</th>
+                <th class="py-2 px-4 border-b">Initial Capital</th>
+                <th class="py-2 px-4 border-b">Return Percentage</th>
+                <th class="py-2 px-4 border-b">Next Payment Date</th>
+                <th class="py-2 px-4 border-b">Total to Pay</th>
+                <th class="py-2 px-4 border-b">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Table rows will be dynamically added here -->
+            </tbody>
+          </table>
+        </div>
+        <button id="clearPaymentsBtn" class="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">PAID y borra</button>
+        <button id="downloadBtn" class="mt-4 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Download CSV</button>
+        <button id="downloadPaymentsBtn" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Descarga archivo Pagos</button>
+        <a href="/download_manual" class="mt-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-block">Manual Install</a>
+        <a href="/download_manual" class="mt-4 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded inline-block">Manual User</a>

@@ -1,0 +1,46 @@
+Manual de Instalación en cPanel
+
+1. Acceso a cPanel:
+   - Inicie sesión en su cuenta de cPanel utilizando las credenciales proporcionadas por su proveedor de hosting.
+
+2. Subir archivos:
+   - En el panel de control de cPanel, busque y haga clic en el icono "Administrador de archivos".
+   - Navegue hasta la carpeta pública de su sitio web (generalmente llamada "public_html").
+   - Haga clic en "Subir" y seleccione todos los archivos de la aplicación.
+   - Asegúrese de mantener la estructura de carpetas de la aplicación.
+
+3. Configurar Python:
+   - En cPanel, busque y haga clic en el icono "Selector de versión de Python".
+   - Seleccione la versión de Python compatible con la aplicación (preferiblemente Python 3.7 o superior).
+   - Haga clic en "Establecer como versión actual de Python".
+
+4. Instalar dependencias:
+   - En cPanel, busque y haga clic en el icono "Terminal SSH".
+   - Navegue hasta el directorio de la aplicación: cd public_html/ruta_de_la_app
+   - Cree un entorno virtual: python -m venv venv
+   - Active el entorno virtual: source venv/bin/activate
+   - Instale las dependencias: pip install -r requirements.txt
+
+5. Configurar la aplicación:
+   - En el "Administrador de archivos", abra el archivo main.py.
+   - Asegúrese de que la aplicación esté configurada para ejecutarse en el puerto correcto (generalmente 8080 para aplicaciones Python en cPanel).
+
+6. Configurar el archivo .htaccess:
+   - Cree un archivo .htaccess en la carpeta raíz de la aplicación con el siguiente contenido:
+     RewriteEngine On
+     RewriteRule ^$ http://127.0.0.1:8080/ [P,L]
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteRule ^(.*)$ http://127.0.0.1:8080/$1 [P,L]
+
+7. Iniciar la aplicación:
+   - En la terminal SSH, asegúrese de estar en el directorio de la aplicación y con el entorno virtual activado.
+   - Ejecute: nohup python main.py &
+
+8. Configurar el dominio:
+   - En cPanel, vaya a "Dominios" o "Subdominios" y configure el dominio o subdominio para que apunte a la carpeta de la aplicación.
+
+9. Probar la aplicación:
+   - Abra un navegador web y visite su dominio o subdominio configurado.
+   - Debería ver la aplicación funcionando correctamente.
+
+Nota: Este proceso puede variar ligeramente dependiendo de la configuración específica de su proveedor de hosting. Si encuentra problemas, consulte la documentación de su proveedor o póngase en contacto con su soporte técnico.
